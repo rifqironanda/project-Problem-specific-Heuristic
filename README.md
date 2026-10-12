@@ -6,6 +6,12 @@ Tujuan: memahami alokasi dana ke aset, mereplikasi prinsip heuristik khusus masa
 
 **Cakupan kejujuran eksperimen:** ini reproduksi prinsip dan formulasi, bukan salinan hasil benchmark paper. Tidak ada akses ke dataset 1.978 saham asli, Gurobi berlisensi, IBM Strasbourg atau D-Wave Advantage2 dalam pengujian lokal. Perbedaan lengkap ada di `docs/REPLICATION.md`. Hasil kuantum lokal adalah simulasi klasik ideal, bukan bukti quantum advantage.
 
+## Pahami kasus sebelum menjalankan kode
+
+Mulai dari [panduan kasus dan pipeline](docs/MULAI_DARI_KASUS.md). Panduan ini memakai contoh Rp100 juta, menjelaskan input–proses–output, serta menghubungkan istilah keuangan dengan cara berpikir rekayasa. Notebook juga memiliki pengantar ini sebelum rumus dan algoritma.
+
+![Pipeline eksperimen](docs/images/learning_pipeline.png)
+
 ## Mulai di Windows + VS Code
 
 1. Ekstrak proyek dan buka folder ini melalui VS Code. Pasang Python 3.12, Git, ekstensi Python dan Jupyter. Docker Desktop diperlukan untuk PostgreSQL/container.
