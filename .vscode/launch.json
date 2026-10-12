@@ -1,0 +1,1 @@
+{"version":"0.2.0","configurations":[{"name":"FastAPI","type":"debugpy","request":"launch","module":"uvicorn","args":["psh.api:app","--reload","--host","127.0.0.1","--port","8000"],"envFile":"${workspaceFolder}/.env","jinja":true},{"name":"Streamlit","type":"debugpy","request":"launch","module":"streamlit","args":["run","app.py"],"envFile":"${workspaceFolder}/.env"}]}

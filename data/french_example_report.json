@@ -1,0 +1,413 @@
+{
+  "assets": [
+    "Food",
+    "Beer",
+    "Smoke",
+    "Games",
+    "Books",
+    "Hshld"
+  ],
+  "target_annual_return": 0.0794626627408848,
+  "delta": 0.0625,
+  "upper_bounds": [
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5
+  ],
+  "seed": 42,
+  "d": 3,
+  "dataset_sha256": "e82c68e72d280c29a6b6ba9e852f9a45df274301aa7ede7e88200be9b946947a",
+  "periods": {
+    "train": [
+      "2020-01-02",
+      "2022-05-23"
+    ],
+    "validation": [
+      "2022-05-24",
+      "2023-03-13"
+    ],
+    "test": [
+      "2023-03-14",
+      "2023-12-29"
+    ]
+  },
+  "runtime_seconds": 0.5293775820000519,
+  "results": [
+    {
+      "method": "problem_specific_heuristic",
+      "runtime_seconds": 0.0026986249999936263,
+      "start": 0,
+      "weights": [
+        0.5,
+        0.25,
+        0.25,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "expected_return": 0.07987935784184184,
+      "variance": 0.042856134986355494,
+      "volatility": 0.20701723354917942,
+      "feasible": true,
+      "violations": {
+        "sum": 0.0,
+        "lower": 0.0,
+        "upper": 0.0,
+        "return": 0.0
+      },
+      "capacity_exhausted": false,
+      "trace": [
+        {
+          "step": 1,
+          "asset_index": 1,
+          "sum": 0.125,
+          "decision": "min_variance"
+        },
+        {
+          "step": 2,
+          "asset_index": 2,
+          "sum": 0.1875,
+          "decision": "min_variance"
+        },
+        {
+          "step": 3,
+          "asset_index": 0,
+          "sum": 0.25,
+          "decision": "min_variance"
+        },
+        {
+          "step": 4,
+          "asset_index": 1,
+          "sum": 0.3125,
+          "decision": "min_variance"
+        },
+        {
+          "step": 5,
+          "asset_index": 0,
+          "sum": 0.375,
+          "decision": "min_variance"
+        },
+        {
+          "step": 6,
+          "asset_index": 0,
+          "sum": 0.4375,
+          "decision": "min_variance"
+        },
+        {
+          "step": 7,
+          "asset_index": 2,
+          "sum": 0.5,
+          "decision": "min_variance"
+        },
+        {
+          "step": 8,
+          "asset_index": 0,
+          "sum": 0.5625,
+          "decision": "min_variance"
+        },
+        {
+          "step": 9,
+          "asset_index": 1,
+          "sum": 0.625,
+          "decision": "min_variance"
+        },
+        {
+          "step": 10,
+          "asset_index": 0,
+          "sum": 0.6875,
+          "decision": "min_variance"
+        },
+        {
+          "step": 11,
+          "asset_index": 0,
+          "sum": 0.75,
+          "decision": "min_variance"
+        },
+        {
+          "step": 12,
+          "asset_index": 2,
+          "sum": 0.8125,
+          "decision": "min_variance"
+        },
+        {
+          "step": 13,
+          "asset_index": 0,
+          "sum": 0.875,
+          "decision": "min_variance"
+        },
+        {
+          "step": 14,
+          "asset_index": 1,
+          "sum": 0.9375,
+          "decision": "min_variance"
+        },
+        {
+          "step": 15,
+          "asset_index": 2,
+          "sum": 1.0,
+          "decision": "min_variance"
+        }
+      ],
+      "candidate_feasible_fraction": 0.6666666666666666,
+      "candidates": 6,
+      "heldout": {
+        "realized_annual_return": 0.009009350979607712,
+        "realized_annual_volatility": 0.11336900670036498,
+        "max_drawdown": -0.14245849691486068,
+        "cumulative_return": 0.007215349738259436,
+        "evaluation": "held-out static weights; daily rebalance; zero transaction costs"
+      },
+      "variance_ratio_to_continuous_reference": 1.0031407746345056
+    },
+    {
+      "method": "continuous_slsqp",
+      "runtime_seconds": 0.0038011769997865485,
+      "weights": [
+        0.5,
+        0.2696555620698235,
+        0.2197655943171031,
+        0.0,
+        0.0,
+        0.010578843613073386
+      ],
+      "expected_return": 0.0794626627408848,
+      "variance": 0.0427219549538998,
+      "volatility": 0.2066929001052039,
+      "feasible": true,
+      "violations": {
+        "sum": 0.0,
+        "lower": 0.0,
+        "upper": 0.0,
+        "return": 0.0
+      },
+      "solver_success": true,
+      "message": "Optimization terminated successfully",
+      "heldout": {
+        "realized_annual_return": 0.010141691523010567,
+        "realized_annual_volatility": 0.1137767172467959,
+        "max_drawdown": -0.14473083644953455,
+        "cumulative_return": 0.00812130488951568,
+        "evaluation": "held-out static weights; daily rebalance; zero transaction costs"
+      },
+      "variance_ratio_to_continuous_reference": 1.0
+    },
+    {
+      "method": "equal_weight",
+      "runtime_seconds": 0.0,
+      "weights": [
+        0.16666666666666666,
+        0.16666666666666666,
+        0.16666666666666666,
+        0.16666666666666666,
+        0.16666666666666666,
+        0.16666666666666666
+      ],
+      "expected_return": 0.041709624349026614,
+      "variance": 0.046367630223215335,
+      "volatility": 0.21533144271846444,
+      "feasible": false,
+      "violations": {
+        "sum": 1.1102230246251565e-16,
+        "lower": 0.0,
+        "upper": 0.0,
+        "return": 0.03775303839185819
+      }
+    },
+    {
+      "method": "ai_surrogate",
+      "runtime_seconds": 0.0030748129997846263,
+      "weights": [
+        0.39614305045361603,
+        0.06210025014415957,
+        0.0669982708563231,
+        0.10404349896676655,
+        0.05060367420193393,
+        0.3201112553772011
+      ],
+      "expected_return": 0.04928467101019089,
+      "variance": 0.04137851146422028,
+      "volatility": 0.20341708744405,
+      "feasible": false,
+      "violations": {
+        "sum": 4.440892098500626e-16,
+        "lower": 0.0,
+        "upper": 0.0,
+        "return": 0.03017799173069391
+      },
+      "training_seconds": 0.4548956190001263,
+      "model": {
+        "training_labels": 111,
+        "validation_labels": 30,
+        "validation_weight_mae": 0.17268214036569648,
+        "trials": [
+          {
+            "max_depth": 4,
+            "validation_weight_mae": 0.17268214036569648
+          },
+          {
+            "max_depth": 8,
+            "validation_weight_mae": 0.1731819634981885
+          }
+        ],
+        "train_last_label_date": "2022-05-18",
+        "validation_last_label_date": "2023-03-03",
+        "teacher": "continuous SLSQP; solver success and feasible labels only",
+        "meaning": "MAE measures imitation of teacher, not future profitability"
+      }
+    },
+    {
+      "method": "ai_complement_heuristic",
+      "runtime_seconds": 0.0049021559998436715,
+      "weights": [
+        0.5,
+        0.26965556206982316,
+        0.21976559431710327,
+        3.3296962542107685e-18,
+        0.0,
+        0.010578843613073596
+      ],
+      "expected_return": 0.07946266274088479,
+      "variance": 0.0427219549538998,
+      "volatility": 0.2066929001052039,
+      "feasible": true,
+      "violations": {
+        "sum": 0.0,
+        "lower": 0.0,
+        "upper": 0.0,
+        "return": 1.3877787807814457e-17
+      },
+      "solver_success": true,
+      "message": "Optimization terminated successfully",
+      "selected_source": "ai_warmstart_slsqp",
+      "note": "Hybrid includes continuous solver; improvement cannot be attributed to AI alone",
+      "training_seconds": 0.4548956190001263,
+      "heldout": {
+        "realized_annual_return": 0.010141691523010584,
+        "realized_annual_volatility": 0.11377671724679589,
+        "max_drawdown": -0.14473083644953466,
+        "cumulative_return": 0.008121304889516123,
+        "evaluation": "held-out static weights; daily rebalance; zero transaction costs"
+      },
+      "variance_ratio_to_continuous_reference": 1.0
+    },
+    {
+      "method": "qubo_random",
+      "runtime_seconds": 0.0010509030003049702,
+      "weights": null,
+      "feasible": false,
+      "samples": 30,
+      "candidate_feasible_fraction": 0.0
+    },
+    {
+      "method": "qubo_sa",
+      "runtime_seconds": 0.018235143000310927,
+      "weights": null,
+      "feasible": false,
+      "samples": 30,
+      "candidate_feasible_fraction": 0.0
+    },
+    {
+      "method": "qubo_steepest",
+      "runtime_seconds": 0.0023631099998056015,
+      "weights": null,
+      "feasible": false,
+      "samples": 30,
+      "candidate_feasible_fraction": 0.0
+    },
+    {
+      "method": "qubo_tabu",
+      "runtime_seconds": 0.030789416999596142,
+      "weights": [
+        0.5,
+        0.125,
+        0.375,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "expected_return": 0.07967101029136332,
+      "variance": 0.04362107562023136,
+      "volatility": 0.20885659103851945,
+      "feasible": true,
+      "violations": {
+        "sum": 0.0,
+        "lower": 0.0,
+        "upper": 0.0,
+        "return": 0.0
+      },
+      "qubo_energy_without_offset": -1007.8640704913769,
+      "samples": 30,
+      "candidate_feasible_fraction": 0.16666666666666666,
+      "heldout": {
+        "realized_annual_return": 0.005818703911622154,
+        "realized_annual_volatility": 0.11218013171332075,
+        "max_drawdown": -0.13689747217911852,
+        "cumulative_return": 0.004661512985547178,
+        "evaluation": "held-out static weights; daily rebalance; zero transaction costs"
+      },
+      "variance_ratio_to_continuous_reference": 1.021045868975373
+    }
+  ],
+  "versions": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0"
+  },
+  "python": "3.12.14",
+  "scope": "Small-scale principle replication; no hardware quantum advantage claim",
+  "timing_note": "Method-specific budgets differ; training included separately; not paper fixed-time benchmark",
+  "qubo": {
+    "bits": 24,
+    "penalty": 1000,
+    "return_target_shift": 0.01,
+    "offset": 1008.0035680246892
+  },
+  "source": "Kenneth French 30 Industry Portfolios Daily; first 6 columns; value-weighted",
+  "source_metadata": {
+    "source": "french",
+    "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/30_Industry_Portfolios_Daily_CSV.zip",
+    "retrieved_at": "2026-10-12T04:46:58.071522+00:00",
+    "raw_sha256": "04a7a74fcd7c12e90461718e5ba8490e99d18c3e9323182b6c7a7b320e6cd34a",
+    "start_inclusive": "2020-01-01",
+    "end_exclusive": "2024-01-01",
+    "assets": [
+      "Food",
+      "Beer",
+      "Smoke",
+      "Games",
+      "Books",
+      "Hshld",
+      "Clths",
+      "Hlth",
+      "Chems",
+      "Txtls",
+      "Cnstr",
+      "Steel",
+      "FabPr",
+      "ElcEq",
+      "Autos",
+      "Carry",
+      "Mines",
+      "Coal",
+      "Oil",
+      "Util",
+      "Telcm",
+      "Servs",
+      "BusEq",
+      "Paper",
+      "Trans",
+      "Whlsl",
+      "Rtail",
+      "Meals",
+      "Fin",
+      "Other"
+    ],
+    "unit": "daily decimal return",
+    "price_adjustment": "raw Close for Yahoo; French value-weighted returns",
+    "scope": "Alternative dataset; not original 1978-asset universe"
+  }
+}

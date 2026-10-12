@@ -1,0 +1,425 @@
+{
+  "assets": [
+    "ASSET_01",
+    "ASSET_02",
+    "ASSET_03",
+    "ASSET_04",
+    "ASSET_05",
+    "ASSET_06"
+  ],
+  "target_annual_return": 0.19548317930353862,
+  "delta": 0.25,
+  "upper_bounds": [
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5
+  ],
+  "seed": 42,
+  "d": 1,
+  "dataset_sha256": "be2c3e9c5e2402d7608b893c56446f62dbc5887dd2e16d5bc72b3477c9859085",
+  "periods": {
+    "train": [
+      "2020-01-01",
+      "2021-09-24"
+    ],
+    "validation": [
+      "2021-09-27",
+      "2022-04-25"
+    ],
+    "test": [
+      "2022-04-26",
+      "2022-11-23"
+    ]
+  },
+  "runtime_seconds": 0.5256935899999462,
+  "results": [
+    {
+      "method": "problem_specific_heuristic",
+      "runtime_seconds": 0.0007708219998221466,
+      "start": 0,
+      "weights": [
+        0.25,
+        0.0,
+        0.0,
+        0.5,
+        0.0,
+        0.25
+      ],
+      "expected_return": 0.21358561160505982,
+      "variance": 0.004395263369096781,
+      "volatility": 0.06629678249430195,
+      "feasible": true,
+      "violations": {
+        "sum": 0.0,
+        "lower": 0.0,
+        "upper": 0.0,
+        "return": 0.0
+      },
+      "capacity_exhausted": false,
+      "trace": [
+        {
+          "step": 1,
+          "asset_index": 3,
+          "sum": 0.5,
+          "decision": "max_return_fallback"
+        },
+        {
+          "step": 2,
+          "asset_index": 3,
+          "sum": 0.75,
+          "decision": "min_variance"
+        },
+        {
+          "step": 3,
+          "asset_index": 5,
+          "sum": 1.0,
+          "decision": "min_variance"
+        }
+      ],
+      "candidate_feasible_fraction": 0.8333333333333334,
+      "candidates": 6,
+      "heldout": {
+        "realized_annual_return": 0.02076672432239228,
+        "realized_annual_volatility": 0.07672329130880323,
+        "max_drawdown": -0.05819452868260433,
+        "cumulative_return": 0.01247484188051784,
+        "evaluation": "held-out static weights; daily rebalance; zero transaction costs"
+      },
+      "variance_ratio_to_continuous_reference": 1.3949364068734338
+    },
+    {
+      "method": "continuous_slsqp",
+      "runtime_seconds": 0.006777780999982497,
+      "weights": [
+        0.2005490230864983,
+        0.0,
+        0.041278601254793774,
+        0.35124272543489443,
+        0.2068320005159238,
+        0.20009764970788976
+      ],
+      "expected_return": 0.1954831793035386,
+      "variance": 0.003150870066505888,
+      "volatility": 0.05613261143493939,
+      "feasible": true,
+      "violations": {
+        "sum": 0.0,
+        "lower": 0.0,
+        "upper": 0.0,
+        "return": 2.7755575615628914e-17
+      },
+      "solver_success": true,
+      "message": "Optimization terminated successfully",
+      "heldout": {
+        "realized_annual_return": 0.08573875849059982,
+        "realized_annual_volatility": 0.06515040920683142,
+        "max_drawdown": -0.04237174972807123,
+        "cumulative_return": 0.05086909160875375,
+        "evaluation": "held-out static weights; daily rebalance; zero transaction costs"
+      },
+      "variance_ratio_to_continuous_reference": 1.0
+    },
+    {
+      "method": "equal_weight",
+      "runtime_seconds": 0.0,
+      "weights": [
+        0.16666666666666666,
+        0.16666666666666666,
+        0.16666666666666666,
+        0.16666666666666666,
+        0.16666666666666666,
+        0.16666666666666666
+      ],
+      "expected_return": 0.10760554974533248,
+      "variance": 0.0033839656680301066,
+      "volatility": 0.05817186319888771,
+      "feasible": false,
+      "violations": {
+        "sum": 1.1102230246251565e-16,
+        "lower": 0.0,
+        "upper": 0.0,
+        "return": 0.08787762955820613
+      }
+    },
+    {
+      "method": "ai_surrogate",
+      "runtime_seconds": 0.0034123709999676066,
+      "weights": [
+        0.1548589323657478,
+        0.09739308484580367,
+        0.0781595002223681,
+        0.32621584032071654,
+        0.10656029517286972,
+        0.23681234707249427
+      ],
+      "expected_return": 0.16320892132947634,
+      "variance": 0.0030692492208874217,
+      "volatility": 0.05540080523681422,
+      "feasible": false,
+      "violations": {
+        "sum": 0.0,
+        "lower": 0.0,
+        "upper": 0.0,
+        "return": 0.032274257974062276
+      },
+      "training_seconds": 0.3784650640000109,
+      "model": {
+        "training_labels": 81,
+        "validation_labels": 21,
+        "validation_weight_mae": 0.060403139248716174,
+        "trials": [
+          {
+            "max_depth": 4,
+            "validation_weight_mae": 0.06154072090407773
+          },
+          {
+            "max_depth": 8,
+            "validation_weight_mae": 0.060403139248716174
+          }
+        ],
+        "train_last_label_date": "2021-09-21",
+        "validation_last_label_date": "2022-04-22",
+        "teacher": "continuous SLSQP; solver success and feasible labels only",
+        "meaning": "MAE measures imitation of teacher, not future profitability"
+      }
+    },
+    {
+      "method": "ai_complement_heuristic",
+      "runtime_seconds": 0.006180190999884871,
+      "weights": [
+        0.20054797276461317,
+        0.0,
+        0.04128049740773716,
+        0.3512459146926273,
+        0.20683326162380258,
+        0.20009235351121973
+      ],
+      "expected_return": 0.19548317930353862,
+      "variance": 0.003150870066076452,
+      "volatility": 0.0561326114311142,
+      "feasible": true,
+      "violations": {
+        "sum": 2.220446049250313e-16,
+        "lower": 0.0,
+        "upper": 0.0,
+        "return": 0.0
+      },
+      "solver_success": true,
+      "message": "Optimization terminated successfully",
+      "selected_source": "ai_warmstart_slsqp",
+      "note": "Hybrid includes continuous solver; improvement cannot be attributed to AI alone",
+      "training_seconds": 0.3784650640000109,
+      "heldout": {
+        "realized_annual_return": 0.08573909616583525,
+        "realized_annual_volatility": 0.0651503097022409,
+        "max_drawdown": -0.04237139609207663,
+        "cumulative_return": 0.05086928874455898,
+        "evaluation": "held-out static weights; daily rebalance; zero transaction costs"
+      },
+      "variance_ratio_to_continuous_reference": 0.9999999998637088
+    },
+    {
+      "method": "qubo_random",
+      "runtime_seconds": 0.00149289899991345,
+      "weights": null,
+      "feasible": false,
+      "samples": 50,
+      "candidate_feasible_fraction": 0.0
+    },
+    {
+      "method": "qubo_sa",
+      "runtime_seconds": 0.02540210200004367,
+      "weights": [
+        0.25,
+        0.0,
+        0.0,
+        0.5,
+        0.0,
+        0.25
+      ],
+      "expected_return": 0.21358561160505982,
+      "variance": 0.004395263369096781,
+      "volatility": 0.06629678249430195,
+      "feasible": true,
+      "violations": {
+        "sum": 0.0,
+        "lower": 0.0,
+        "upper": 0.0,
+        "return": 0.0
+      },
+      "qubo_energy_without_offset": -1042.1532923041204,
+      "samples": 50,
+      "candidate_feasible_fraction": 0.18,
+      "heldout": {
+        "realized_annual_return": 0.02076672432239228,
+        "realized_annual_volatility": 0.07672329130880323,
+        "max_drawdown": -0.05819452868260433,
+        "cumulative_return": 0.01247484188051784,
+        "evaluation": "held-out static weights; daily rebalance; zero transaction costs"
+      },
+      "variance_ratio_to_continuous_reference": 1.3949364068734338
+    },
+    {
+      "method": "qubo_steepest",
+      "runtime_seconds": 0.0030007309999291465,
+      "weights": [
+        0.25,
+        0.0,
+        0.0,
+        0.5,
+        0.0,
+        0.25
+      ],
+      "expected_return": 0.21358561160505982,
+      "variance": 0.004395263369096781,
+      "volatility": 0.06629678249430195,
+      "feasible": true,
+      "violations": {
+        "sum": 0.0,
+        "lower": 0.0,
+        "upper": 0.0,
+        "return": 0.0
+      },
+      "qubo_energy_without_offset": -1042.1532923041204,
+      "samples": 50,
+      "candidate_feasible_fraction": 0.34,
+      "heldout": {
+        "realized_annual_return": 0.02076672432239228,
+        "realized_annual_volatility": 0.07672329130880323,
+        "max_drawdown": -0.05819452868260433,
+        "cumulative_return": 0.01247484188051784,
+        "evaluation": "held-out static weights; daily rebalance; zero transaction costs"
+      },
+      "variance_ratio_to_continuous_reference": 1.3949364068734338
+    },
+    {
+      "method": "qubo_tabu",
+      "runtime_seconds": 0.03776218300004075,
+      "weights": [
+        0.25,
+        0.0,
+        0.0,
+        0.5,
+        0.0,
+        0.25
+      ],
+      "expected_return": 0.21358561160505982,
+      "variance": 0.004395263369096781,
+      "volatility": 0.06629678249430195,
+      "feasible": true,
+      "violations": {
+        "sum": 0.0,
+        "lower": 0.0,
+        "upper": 0.0,
+        "return": 0.0
+      },
+      "qubo_energy_without_offset": -1042.1532923041204,
+      "samples": 50,
+      "candidate_feasible_fraction": 1.0,
+      "heldout": {
+        "realized_annual_return": 0.02076672432239228,
+        "realized_annual_volatility": 0.07672329130880323,
+        "max_drawdown": -0.05819452868260433,
+        "cumulative_return": 0.01247484188051784,
+        "evaluation": "held-out static weights; daily rebalance; zero transaction costs"
+      },
+      "variance_ratio_to_continuous_reference": 1.3949364068734338
+    },
+    {
+      "method": "exact_discrete_grid",
+      "runtime_seconds": 0.001143823000120392,
+      "weights": [
+        0.25,
+        0.0,
+        0.0,
+        0.5,
+        0.0,
+        0.25
+      ],
+      "expected_return": 0.21358561160505982,
+      "variance": 0.004395263369096781,
+      "volatility": 0.06629678249430195,
+      "feasible": true,
+      "violations": {
+        "sum": 0.0,
+        "lower": 0.0,
+        "upper": 0.0,
+        "return": 0.0
+      },
+      "message": "Exhaustive grid optimum",
+      "heldout": {
+        "realized_annual_return": 0.02076672432239228,
+        "realized_annual_volatility": 0.07672329130880323,
+        "max_drawdown": -0.05819452868260433,
+        "cumulative_return": 0.01247484188051784,
+        "evaluation": "held-out static weights; daily rebalance; zero transaction costs"
+      },
+      "variance_ratio_to_continuous_reference": 1.3949364068734338
+    },
+    {
+      "method": "qaoa_classical_simulator",
+      "runtime_seconds": 0.0544774470001812,
+      "weights": [
+        0.25,
+        0.0,
+        0.0,
+        0.5,
+        0.25,
+        0.0
+      ],
+      "expected_return": 0.20844960570194015,
+      "variance": 0.004428912299333867,
+      "volatility": 0.06655007362380501,
+      "feasible": true,
+      "violations": {
+        "sum": 0.0,
+        "lower": 0.0,
+        "upper": 0.0,
+        "return": 0.0
+      },
+      "qubo_energy_without_offset": -1042.2101083788139,
+      "sampler": {
+        "method": "qaoa_classical_simulator",
+        "runtime_seconds": 0.05099746399992,
+        "samples": 512,
+        "qubits": 12,
+        "layers": 1,
+        "optimizer_evaluations": 28,
+        "theta": [
+          2.201321985179335,
+          -0.09764508565591791
+        ],
+        "parameter_strategy": "cobyla",
+        "optimizer_success": true,
+        "seed": 42
+      },
+      "candidate_feasible_fraction": 0.07,
+      "heldout": {
+        "realized_annual_return": 0.09428568994918987,
+        "realized_annual_volatility": 0.07061573272724127,
+        "max_drawdown": -0.03817182635961702,
+        "cumulative_return": 0.05585105081863473,
+        "evaluation": "held-out static weights; daily rebalance; zero transaction costs"
+      },
+      "variance_ratio_to_continuous_reference": 1.4056156572159908
+    }
+  ],
+  "versions": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0"
+  },
+  "python": "3.12.14",
+  "scope": "Small-scale principle replication; no hardware quantum advantage claim",
+  "timing_note": "Method-specific budgets differ; training included separately; not paper fixed-time benchmark",
+  "qubo": {
+    "bits": 12,
+    "penalty": 1000,
+    "return_target_shift": 0.01,
+    "offset": 1042.2233369766902
+  }
+}

@@ -1,0 +1,26 @@
+name: tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: psh
+          POSTGRES_PASSWORD: test_password
+          POSTGRES_DB: psh_test
+        ports: ["5432:5432"]
+        options: --health-cmd "pg_isready -U psh -d psh_test" --health-interval 5s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.lock
+      - run: pip install --no-deps -e .
+      - run: python -m pytest -q
+      - run: python -m pytest -q tests/test_postgres.py
+        env:
+          TEST_POSTGRES_URL: postgresql+psycopg://psh:test_password@localhost:5432/psh_test
+      - run: python -m scripts.execute_notebook
